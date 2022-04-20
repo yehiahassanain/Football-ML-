@@ -19,7 +19,7 @@ data = pd.read_csv('player-value-prediction.csv')
 #column
 data = data.drop(['national_team','national_rating','national_team_position','national_jersey_number','tags'],axis=1)
 #row
-# data = data.fillna(data.mean())
+data = data.fillna(data.mean())
 data=data.fillna(data.mode().iloc[0])
 
 #Features&Label
@@ -67,17 +67,6 @@ x['club_join_date'] = pd.to_datetime(x['club_join_date']).dt.year
 x['contract_end_year'] = pd.to_datetime(x['contract_end_year']).dt.year
 
 
-#scaling
-#Normalization
-
-def Scaling(X,a,b):
-    X = np.array(X)
-    Normalized_X=np.zeros((X.shape[0],X.shape[1]))
-    for i in range(X.shape[1]):
-        Normalized_X[:,i]=((X[:,i]-min(X[:,i]))/(max(X[:,i])-min(X[:,i])))*(b-a)+a
-    return Normalized_X
-
-x = Scaling(x,0,1)
 
 # print(x)
 
@@ -91,7 +80,21 @@ plt.subplots(figsize=(12, 8))
 highest_correlation=data[Top_features].corr()
 sns.heatmap(highest_correlation, annot=True)
 plt.show()
-x = data[Top_features]
+Top_features = Top_features.delete(-1)
+x = x[Top_features]
+
+#scaling
+#Normalization
+
+def Scaling(X,a,b):
+    X = np.array(X)
+    Normalized_X=np.zeros((X.shape[0],X.shape[1]))
+    for i in range(X.shape[1]):
+        Normalized_X[:, i] = ((X[:, i]-min(X[:, i]))/(max(X[:, i])-min(X[:, i])))*(b-a)+a
+    return Normalized_X
+
+x = Scaling(x, 0, 1)
+
 #===================================================================================================================================
 
 #Test And Train split
@@ -113,15 +116,16 @@ Test_Prediction=poly_model.predict(poly_features.fit_transform(X_test))
 print('Mean Square Error', metrics.mean_squared_error(Y_test, Test_Prediction))
 
 # modeling (multi_variable)
-correlation=data.corr()
-Top_features=correlation.index[abs(correlation['value'])>0.5]
-#Draw correlation between training features(Top 50%)
-
-plt.subplots(figsize=(12, 8))
-highest_correlation=data[Top_features].corr()
-sns.heatmap(highest_correlation, annot=True)
-plt.show()
-x = data[Top_features]
+# correlation=data.corr()
+# Top_features=correlation.index[abs(correlation['value'])>0.5]
+# #Draw correlation between training features(Top 50%)
+#
+# plt.subplots(figsize=(12, 8))
+# highest_correlation = data[Top_features].corr()
+# sns.heatmap(highest_correlation, annot=True)
+# plt.show()
+# Top_features = Top_features.delete(-1)
+# x = x[Top_features]
 # =================================================================
 #Apply Linear Regression on the selected features
 cls = linear_model.LinearRegression()
