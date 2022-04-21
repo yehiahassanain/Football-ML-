@@ -1,3 +1,6 @@
+import math
+import time
+from sklearn.metrics import r2_score
 import seaborn as sns
 import numpy as np
 import pandas as pd
@@ -66,14 +69,12 @@ split(x,cols_split)
 x['club_join_date'] = pd.to_datetime(x['club_join_date']).dt.year
 x['contract_end_year'] = pd.to_datetime(x['contract_end_year']).dt.year
 
-
-
 # print(x)
 
 # modeling (polynomial)
 #Correlation
 correlation=data.corr()
-Top_features=correlation.index[abs(correlation['value'])>0.5]
+Top_features=correlation.index[abs(correlation['value']) > 0.5]
 #Draw correlation between training features(Top 50%)
 
 plt.subplots(figsize=(12, 8))
@@ -99,37 +100,40 @@ x = Scaling(x, 0, 1)
 
 #Test And Train split
 
-X_train, X_test, Y_train, Y_test = train_test_split(x, Y, test_size = 0.30,train_size=0.70,shuffle=False,random_state=10)
+X_train, X_test, Y_train, Y_test = train_test_split(x, Y, test_size = 0.20,train_size=0.80,shuffle=False,random_state=10)
 poly_features = PolynomialFeatures(degree=3)
 X_train_poly = poly_features.fit_transform(X_train)
 poly_model = linear_model.LinearRegression()
+# traing time
+start = time.time()
 poly_model.fit(X_train_poly, Y_train)
 #Train_Prediction
-Y_Train_Prediction=poly_model.predict(X_train_poly)
-Y_prediction=poly_model.predict(poly_features.fit_transform(X_test))
-
+Y_Train_Prediction = poly_model.predict(X_train_poly)
+Y_prediction = poly_model.predict(poly_features.fit_transform(X_test))
 
 #Prediction on test_dataset
 
-Test_Prediction=poly_model.predict(poly_features.fit_transform(X_test))
+Test_Prediction = poly_model.predict(poly_features.fit_transform(X_test))
 
 print('Mean Square Error', metrics.mean_squared_error(Y_test, Test_Prediction))
+end = time.time()
+polynomial_runningtime = end - start
+print("training time for polynomial linear regreation is ", polynomial_runningtime)
+polynomial_accuracy = r2_score(Y_test, Test_Prediction)
+print("accuracy for polynomial linear regression is", polynomial_accuracy*100)
 
 # modeling (multi_variable)
-# correlation=data.corr()
-# Top_features=correlation.index[abs(correlation['value'])>0.5]
-# #Draw correlation between training features(Top 50%)
-#
-# plt.subplots(figsize=(12, 8))
-# highest_correlation = data[Top_features].corr()
-# sns.heatmap(highest_correlation, annot=True)
-# plt.show()
-# Top_features = Top_features.delete(-1)
-# x = x[Top_features]
 # =================================================================
 #Apply Linear Regression on the selected features
 cls = linear_model.LinearRegression()
+start2 = time.time()
 cls.fit(x, Y)
 prediction = cls.predict(x)
 #Prediction on test_dataset
+print("================================================================")
 print('Mean Square Error', metrics.mean_squared_error(np.asarray(Y), prediction))
+end2 = time.time()
+multivariable_time = end2 - start2
+print("training time for multivariable linear regreation is", multivariable_time)
+polynomial_accuracy = r2_score(Y, prediction)
+print("accuracy for multivariable linear regression is", polynomial_accuracy*100)
