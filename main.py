@@ -1,7 +1,5 @@
 import math
 import time
-
-import selector as selector
 from sklearn.metrics import r2_score
 import seaborn as sns
 import numpy as np
@@ -18,6 +16,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import MultiLabelBinarizer
 import bisect
 import pickle
+from sklearn.compose import make_column_selector as selector
 # Load players data
 data = pd.read_csv('player-value-prediction.csv')
 
@@ -136,15 +135,15 @@ x = x[Top_features]
 # scaling
 # Normalization
 
-def Scaling(X, a, b):
-    X = np.array(X)
-    Normalized_X = np.zeros((X.shape[0], X.shape[1]))
-    for i in range(X.shape[1]):
-        Normalized_X[:, i] = ((X[:, i] - min(X[:, i])) / (max(X[:, i]) - min(X[:, i]))) * (b - a) + a
-    return Normalized_X
-
-
-x = Scaling(x, 0, 1)
+# def Scaling(X, a, b):
+#     X = np.array(X)
+#     Normalized_X = np.zeros((X.shape[0], X.shape[1]))
+#     for i in range(X.shape[1]):
+#         Normalized_X[:, i] = ((X[:, i] - min(X[:, i])) / (max(X[:, i]) - min(X[:, i]))) * (b - a) + a
+#     return Normalized_X
+#
+#
+# x = Scaling(x, 0, 1)
 
 # ===================================================================================================================================
 
@@ -153,15 +152,20 @@ x = Scaling(x, 0, 1)
 X_train, X_test, Y_train, Y_test = train_test_split(x, Y, test_size=0.20, train_size=0.80, shuffle=False,random_state=10)
 
 from sklearn.preprocessing import MinMaxScaler
-# def Preprocessing_Scaling():
-#     mx = MinMaxScaler()
-#     numerical_columns_selector = selector(dtype_exclude=object)
-#     col = numerical_columns_selector(X_train)
-#     X_train=mx.fit_transform(X_train[col])
-#     X_test=mx.transform(X_test[col])
-#     return mx
+def Preprocessing_Scaling(X_train, X_test):
+    mx = MinMaxScaler()
+    col = []
+    for c in X_train.columns:
+        if X_train[c].dtype == 'object':
+            continue
+        else:
+            col.append(c)
+    X_train_scaled = mx.fit_transform(X_train[col])
+    X_test_scaled = mx.transform(X_test[col])
+    return mx, X_train_scaled, X_test_scaled
 
-#max_scaler=Preprocessing_Scaling()
+max_scaler,X_train, X_test=Preprocessing_Scaling(X_train, X_test)
+
 
 
 
