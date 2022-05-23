@@ -1,0 +1,4 @@
+complete_correlation = associations(
+        df, filename='complete_correlation.png', figsize=(10, 10))
+    top_features = complete_correlation['corr'].index[abs(
+        complete_correlation['corr']['PlayerLevel']) > 0.5]

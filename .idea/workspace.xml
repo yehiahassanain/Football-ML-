@@ -2,8 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4850b73-41f0-4482-94b4-a0c531a241d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/Phase2_project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/Association_correlation.TXT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/DecisionTree_file.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/EncoderFile.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/KNN_model.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/LogisticModel_File.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/complete_correlation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/correlation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/milston two/Phase2_project/player-classification.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DropFile.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/milston one/DropFile.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fillna_File.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/milston one/Fillna_File.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Multivariabl_Model_File.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/milston one/Multivariabl_Model_File.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Polynomial_File.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/milston one/Polynomial_File.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/milston one/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player-value-prediction.csv" beforeDir="false" afterPath="$PROJECT_DIR$/milston one/player-value-prediction.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,17 +49,67 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/yehia/Documents/GitHub/Football-ML-/milston two"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yehia\Documents\GitHub\Football-ML-\milston two" />
       <recent name="C:\Users\yehia\Documents\GitHub\Football-ML-" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yehia\Documents\GitHub\Football-ML-\milston one" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main (2)">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Football-ML-" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Phase2_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Phase2_project/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Football-ML-" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/Phase2_project" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/Phase2_project/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Football-ML-" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -52,7 +123,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\yehia\Documents\GitHub\Football-ML-\milston one\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -61,6 +132,12 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main (2)" />
+        <item itemvalue="Python.main (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,14 +160,30 @@
       <workItem from="1653170649676" duration="607000" />
       <workItem from="1653171541503" duration="2650000" />
       <workItem from="1653258583585" duration="387000" />
+      <workItem from="1653259313842" duration="1246000" />
+      <workItem from="1653260732507" duration="121000" />
+      <workItem from="1653264797383" duration="511000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/main_py$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1653265065798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/Phase2_project" />
     <SUITE FILE_PATH="coverage/Football_ML_$main.coverage" NAME="main Coverage Results" MODIFIED="1650074448604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1653258930444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1653260273204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/main_py$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1653260503558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Phase2_project" />
   </component>
 </project>
