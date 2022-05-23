@@ -28,7 +28,7 @@ data = pd.read_csv('player-classification.csv')
 
 #Drop the rows that contain missing values
 #column
-data = data.drop(['national_team','national_rating','national_team_position','national_jersey_number','tags'],axis=1)
+data = data.drop(['national_team','national_rating','national_team_position','national_jersey_number','tags','club_team','traits','nationality'],axis=1)
 
 #row
 data = data.fillna(data.mean())
@@ -38,9 +38,9 @@ data = data.fillna(data.mode().iloc[0])
 x=data.iloc[:, 4:86]
 label = data['PlayerLevel']
 
-f=x['traits'].str.get_dummies(',')
-x = x.join(f)
-x=x.drop(['traits'],axis = 1)
+# f=x['traits'].str.get_dummies(',')
+# x = x.join(f)
+# x=x.drop(['traits'],axis = 1)
 
 e=x['positions'].str.get_dummies(sep=',').rename(lambda x: 'positions_' + x, axis='columns')
 x=x.join(e)
@@ -64,9 +64,9 @@ features=x[['overall_rating', 'potential', 'wage', 'skill_moves(1-5)',
        'long_passing', 'ball_control', 'reactions', 'shot_power', 'vision',
        'composure', 'LS', 'ST', 'RS', 'LW', 'LF', 'CF', 'RF', 'RW', 'LAM',
        'CAM', 'RAM', 'LM', 'LCM', 'CM', 'RCM', 'RM', 'LWB', 'LDM', 'CDM',
-       'RDM', 'RWB','club_team']]
+       'RDM', 'RWB']]
 
-features.insert(36,'PlayerLevel',data['PlayerLevel'])
+features.insert(35,'PlayerLevel',data['PlayerLevel'])
 
 ###correlation for cat vars
 correlation = associations(
@@ -74,7 +74,9 @@ correlation = associations(
 top_feature =correlation['corr'].index[abs(correlation['corr']['PlayerLevel'])>0.52]
 top_feature = top_feature.delete(-1)
 print(top_feature)
-
+dic=top_feature
+save_dic=open("save_dic.pickle","wb")
+pickle.dump(dic,save_dic)
 cols=('preferred_foot','body_type','club_position',)
 def Feature_Encoder(x, cols):
     for c in cols:
@@ -106,8 +108,8 @@ Y = np.array(Y)
 
 
 #encode
-encoder1=ce.TargetEncoder()
-x['nationality']=encoder1.fit_transform(x['nationality'],x['overall_rating'])
+# encoder1=ce.TargetEncoder()
+# x['nationality']=encoder1.fit_transform(x['nationality'],x['overall_rating'])
 
 
 
@@ -115,8 +117,8 @@ x['nationality']=encoder1.fit_transform(x['nationality'],x['overall_rating'])
 scale_mapper = {"Low/ Low": 0, "Low/ Medium": 1, "Low/ High": 2  ,"Medium/ Low": 3 ,"Medium/ Medium": 4 , "Medium/ High": 5,  "High/ Low": 6,"High/ Medium": 7 ,"High/ High": 8 }
 x["work_rate"] = x["work_rate"].replace(scale_mapper)
 
-encoder2=ce.TargetEncoder()
-x['club_team']=encoder2.fit_transform(x['club_team'],x['club_rating'])
+# encoder2=ce.TargetEncoder()
+# x['club_team']=encoder2.fit_transform(x['club_team'],x['club_rating'])
 
 
 x=x[top_feature]
@@ -143,7 +145,16 @@ def Preprocessing_Scaling(X_train, X_test):
     X_test_scaled = mx.transform(X_test[col])
     return mx, X_train_scaled, X_test_scaled
 
+scaler = MinMaxScaler()
+scaler.fit(x)
+x = scaler.transform(x)
+# save the scaler
+pickle.dump(scaler, open('Preprocessing_Scaling.pkl', 'wb'))
+
+
+
 max_scaler,X_train, X_test=Preprocessing_Scaling(X_train, X_test)
+
 ##################################################################################################################################
 print("========================================================================================================================")
 # Decision tree Model
@@ -173,8 +184,8 @@ print("Accuracy of Training set of Decision_Tree is :",DT_Training_Accuracy*100)
 print("Accuracy of Testing tree set of Decision_Tree is :",DT_Testing_Accuracy*100)
 print("==========================================================================================================================")
 
-# Decision_tree=open("DecisionTree_file.pickle","wb")
-# pickle.dump(classfier_model,Decision_tree)
+Decision_tree=open("DecisionTree_file.pickle","wb")
+pickle.dump(classfier_model,Decision_tree)
 
 
 ############################################################################################################################################################################
@@ -237,8 +248,8 @@ print("Accuracy of train of logistic:",Train_Accuracy*100)
 print("Accuracy of test of logistic:",Test_accuracy*100)
 print("==========================================================================================================================")
 
-# Logisticmodel=open("LogisticModel_File.pickle","wb")
-# pickle.dump(LogisticRegressionModel,Logisticmodel)
+Logisticmodel=open("LogisticModel_File.pickle","wb")
+pickle.dump(LogisticRegressionModel,Logisticmodel)
 ##########################################################################################################################################################################
 
 # # SVM_polynomial-------------------------------------------------------------
