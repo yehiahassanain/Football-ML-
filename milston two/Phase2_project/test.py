@@ -119,8 +119,7 @@ x=x[saver]
 scaler =pickle.load(open('C:/Users/yehia/Documents/GitHub/Football-ML-/milston two/Phase2_project/Preprocessing_Scaling.pkl', 'rb'))
 X_test_scaled = scaler.transform(x)
 
-model1 = open("C:/Users/yehia/Documents/GitHub/Football-ML-/milston two/Phase2_project/DecisionTree_file.pickle","rb")
-
+model1=open("C:/Users/yehia/Documents/GitHub/Football-ML-/milston two/Phase2_project/LogisticModel_File.pickle","rb")
 model = pickle.load(model1)
 test_pred=model.predict(X_test_scaled)
 DT_Testing_Accuracy=accuracy_score(Y,test_pred)
